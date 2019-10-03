@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="entity.Employee" table="employee">
+        <id name="empid">
+            <column name="empid"/>
+            <generator class="assigned"/>
+        </id>
+        <property name="empname" type="string">
+            <column name="empname"/>
+        </property>
+        <!--配置多对多关系
+            关系的维护由project来维护，employee不维护
+        -->
+        <set name="projects" table="proemp" inverse="true">
+            <key>
+                <column name="rempid"/>
+            </key>
+            <many-to-many class="entity.Project">
+                <column name="rproid"/>
+            </many-to-many>
+        </set>
+
+    </class>
+</hibernate-mapping>

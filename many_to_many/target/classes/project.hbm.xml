@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="entity.Project" table="project">
+        <id name="proid">
+            <column name="proid"/>
+            <generator class="assigned"/>
+        </id>
+        <property name="proname" type="string">
+            <column name="proname"/>
+        </property>
+        <!--配置多对多关联关系-->
+        <set name="employees" table="proemp" cascade="save-update">
+            <key>
+                <column name="rproid"/>
+            </key>
+            <many-to-many class="entity.Employee">
+                <column name="rempid"/>
+            </many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>
