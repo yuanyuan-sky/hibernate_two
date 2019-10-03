@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+      <property name="connection.username">root</property>
+      <property name="connection.password">123456</property>
+      <property name="connection.url">jdbc:mysql://localhost:3306/hibernate?serverTimezone=UTC</property>
+      <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+      <!--
+        配置Hibernate数据库的方言
+      -->
+      <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+      <!--是否把Hibernate运行时的SQL语句输出到控制台，便于测试-->
+      <property name="show_sql">true</property>
+      <!--输出的SQL语句进行格式化，便于排版-->
+      <property name="format_sql">true</property>
+      <!--四个选项
+        1、create：先删除原来的表，然后创新创建表
+        2、update：更新原先的表，表数据还存在
+        3、create-drop：先创建，然后再删除
+        4、validate：
+      -->
+      <property name="hibernate.hbm2ddl.auto">update</property>
+      <!--指定默认的数据库,这样在使用表时，会在每个表前面都加上该名   hibernate.student-->
+      <property name="default_schema">hibernate</property>
+      <!--
+        使用getCurrentSession获取session时才需要进行配置，两个值
+        1、thread：本地事务
+        2、jta：全局事务
+      -->
+      <property name="current_session_context_class">thread</property>
+      <mapping resource="entity.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

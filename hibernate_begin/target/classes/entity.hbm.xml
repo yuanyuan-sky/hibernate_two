@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="Entity.StudentEntity" table="student" schema="hibernate">
+        <id name="sid"  type="int">
+            <column name="sid"/>
+            <!--
+                主键生成策略
+                increment:由hibernate自动以递增方式生成
+                identity:由底层数据库生成表示
+                sequence：hibernate根据底层数据库的序列生成标识，这要求底层数据库支持序列。oracle
+                native：根据底层数据库对自动生成标识符的方式，自动选择increment、sequence、hilo
+                assigned:由Java程序负责生成标识符，即自己手动填写主键赋值
+            -->
+            <generator class="assigned"/>
+        </id>
+
+        <property name="sname" column="sname" type="java.lang.String"/>
+        <property name="birthday" column="birthday" type="date"/>
+        <property name="picture" column="picture" type="blob"/>
+        <!--组件属性-->
+        <component name="address" class="Entity.Address">
+            <property name="postCode" column="postCode"/>
+            <property name="address" column="address"/>
+            <property name="phone" column="phone"/>
+        </component>
+    </class>
+    <class name="Entity.TeacherEntity" table="teacher">
+        <id name="id" column="id"/>
+        <property name="name" column="name"/>
+    </class>
+</hibernate-mapping>

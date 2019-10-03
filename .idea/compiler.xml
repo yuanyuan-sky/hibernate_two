@@ -10,6 +10,7 @@
         <module name="many_to_one" />
         <module name="bilateral_many_to_one" />
         <module name="many_to_many" />
+        <module name="hibernate_begin" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
