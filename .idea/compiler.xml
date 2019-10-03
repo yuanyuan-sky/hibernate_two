@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="one_to_many" />
         <module name="many_to_one" />
+        <module name="bilateral_many_to_one" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

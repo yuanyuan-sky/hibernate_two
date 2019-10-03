@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="entity.Grade" table="grade">
+        <id name="gid" column="gid" type="int">
+            <generator class="increment"/>
+        </id>
+        <property name="gname" type="java.lang.String">
+            <column name="gname" length="20" not-null="false"/>
+        </property>
+        <property name="gdesc" type="java.lang.String">
+            <column name="gdesc" length="20" not-null="false"/>
+        </property>
+        <!--配置一对多关联关系-->
+        <!--
+            name:一方中集合属性名，必须
+            table：多方对应的数据库名，不必须
+            inverse(反转):指定关联关系的控制方向，默认为false，表示由one方来维护关联关系。
+                    设置inverse为true，表示一方不维护，由多方来维护
+            cascade（级联）：当设置了cascade属性不为none时，Hibernate会自动持久化所关联的对象
+                            当我在一的方集合里添加了多方的元素，则当我保存一方的数据时，多方的也会保存
+                            常用的值有
+                                all:对所有操作都进行级联操作
+                                save-update:进行增加和更新的时候进行级联操作
+                                delete：执行删除操作时进行级联操作
+                                none：对所有操作都不进行级联操作
+            cascade也可以设置在多方。
+            cascade会带来性能上的变动，要谨慎设置
+         -->
+        <set name="students" table="student" inverse="true" cascade="save-update">
+            <!--指定关联的外键-->
+            <key column="gid"/>
+            <one-to-many class="entity.Student"/>
+        </set>
+    </class>
+</hibernate-mapping>
