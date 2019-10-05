@@ -6,11 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="one_to_many" />
-        <module name="many_to_one" />
+        <module name="one_to_one" />
+        <module name="hibernate_begin" />
         <module name="bilateral_many_to_one" />
         <module name="many_to_many" />
-        <module name="hibernate_begin" />
+        <module name="many_to_one" />
+        <module name="one_to_many" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

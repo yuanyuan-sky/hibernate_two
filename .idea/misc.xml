@@ -10,6 +10,7 @@
         <option value="$PROJECT_DIR$/bilateral_many_to_one/pom.xml" />
         <option value="$PROJECT_DIR$/many_to_many/pom.xml" />
         <option value="$PROJECT_DIR$/hibernate_begin/pom.xml" />
+        <option value="$PROJECT_DIR$/one_to_one/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

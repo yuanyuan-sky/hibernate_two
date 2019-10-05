@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="entity.Sort">
+        <id name="sid" type="int">
+            <column name="sid"/>
+            <generator class="assigned"/>
+        </id>
+        <property name="sname" type="string">
+            <column name="sname"/>
+        </property>
+        <one-to-one name="book" class="entity.Book"/>
+    </class>
+</hibernate-mapping>

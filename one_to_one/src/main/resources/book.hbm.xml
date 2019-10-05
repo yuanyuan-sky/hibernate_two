@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="entity.Book">
+        <id name="bid" type="int">
+            <column name="bid"/>
+            <!--
+                说明这既是一个主键，又是一个外键，外键参考Book类中的sort属性
+            -->
+            <generator class="foreign">
+                <param name="property">sort</param>
+            </generator>
+        </id>
+        <property name="bname" type="string">
+            <column name="bname"/>
+        </property>
+        <!--有外键的一方
+
+        -->
+        <one-to-one name="sort" class="entity.Sort" constrained="true" cascade="save-update"/>
+    </class>
+</hibernate-mapping>

@@ -15,25 +15,18 @@ public class Grade implements Serializable {
 
     private String gdesc;
 
-    private Set<Student> students = new HashSet<>();
-
     /**
      * Gets students.
      *
      * @return the students
      */
-    public Set<Student> getStudents() {
-        return students;
-    }
+
 
     /**
      * Sets students.
      *
      * @param students the students
      */
-    public void setStudents(Set<Student> students) {
-        this.students = students;
-    }
 
     /**
      * Instantiates a new Grade.
@@ -112,7 +105,6 @@ public class Grade implements Serializable {
                 "gid=" + gid +
                 ", gname='" + gname + '\'' +
                 ", gdesc='" + gdesc + '\'' +
-                ", students=" + students +
                 '}';
     }
 }
